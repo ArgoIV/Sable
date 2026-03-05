@@ -124,8 +124,8 @@ export interface Settings {
 }
 
 const defaultSettings: Settings = {
-  themeId: undefined,
-  useSystemTheme: true,
+  themeId: 'the-argo-theme',
+  useSystemTheme: false,
   lightThemeId: undefined,
   darkThemeId: undefined,
   useSystemArboriumTheme: true,
