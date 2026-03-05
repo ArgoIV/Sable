@@ -73,6 +73,23 @@
   --font-monospace: 'Space Mono', monospace;
 }
 
+.the-argo-theme {
+  --tc-link: #e0457b; /* Bright Rose for links */
+
+  /* Brightened palette for readable MXIDs against espresso dark */
+  --mx-uc-1: #e0457b; /* Bright Rose */
+  --mx-uc-2: #d4a954; /* Gold/Brass */
+  --mx-uc-3: #8aab93; /* Light Olive */
+  --mx-uc-4: #e47d5e; /* Light Terracotta */
+  --mx-uc-5: #f2e3d5; /* Sand */
+  --mx-uc-6: #b5a496; /* Muted Sand */
+  --mx-uc-7: #fc5959; /* Light Red */
+  --mx-uc-8: #c18fb8; /* Dusty Lilac/Plum */
+
+  --font-secondary: 'Nunito Variable', var(--font-emoji), sans-serif;
+  --font-monospace: 'Maple Mono', 'Space Mono', monospace;
+}
+
 html {
   height: 100%;
   overflow: hidden;

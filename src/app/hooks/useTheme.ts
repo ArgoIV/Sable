@@ -13,6 +13,7 @@ import {
   cinnySilverTheme,
   gruvdarkTheme,
   accordTheme,
+  theArgoTheme,
 } from '../../colors.css';
 
 export enum ThemeKind {
@@ -81,6 +82,12 @@ export const AccordTheme: Theme = {
   classNames: ['accord-theme', accordTheme, onDarkFontWeight, 'prism-dark'],
 };
 
+export const TheArgoTheme: Theme = {
+  id: 'the-argo-theme',
+  kind: ThemeKind.Dark,
+  classNames: ['the-argo-theme', theArgoTheme, onDarkFontWeight, 'prism-dark'],
+};
+
 export const useThemes = (): Theme[] => {
   const themes: Theme[] = useMemo(
     () => [
@@ -94,6 +101,7 @@ export const useThemes = (): Theme[] => {
       CinnyDarkTheme,
       GruvdarkTheme,
       AccordTheme,
+      TheArgoTheme,
     ],
     []
   );
@@ -114,6 +122,7 @@ export const useThemeNames = (): Record<string, string> =>
       [RosePineTheme.id]: 'Rose Pine',
       [GruvdarkTheme.id]: 'GruvDark',
       [AccordTheme.id]: 'Accord',
+      [TheArgoTheme.id]: 'The Argo',
     }),
     []
   );
