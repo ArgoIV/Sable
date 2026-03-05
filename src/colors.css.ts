@@ -102,3 +102,4 @@ export const rosePineTheme = createTheme(color, sableThemeMapping);
 export const cinnyDarkTheme = createTheme(color, sableThemeMapping);
 export const accordTheme = createTheme(color, sableThemeMapping);
 export const theArgoTheme = createTheme(color, sableThemeMapping);
+export const chromaGlowTheme = createTheme(color, sableThemeMapping);

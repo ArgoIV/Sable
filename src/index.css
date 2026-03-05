@@ -90,6 +90,22 @@
   --font-monospace: 'Maple Mono', 'Space Mono', monospace;
 }
 
+.chroma-glow-theme {
+  --tc-link: #a080ff;
+
+  --mx-uc-1: #bf80ff;
+  --mx-uc-2: #ff66b2;
+  --mx-uc-3: #00e5c0;
+  --mx-uc-4: #5b8fff;
+  --mx-uc-5: #ff9040;
+  --mx-uc-6: #66ffcc;
+  --mx-uc-7: #ffcc33;
+  --mx-uc-8: #ff5580;
+
+  --font-secondary: 'Nunito Variable', var(--font-emoji), sans-serif;
+  --font-monospace: 'Maple Mono', 'Space Mono', monospace;
+}
+
 html {
   height: 100%;
   overflow: hidden;
@@ -248,4 +264,14 @@ body.reduced-motion button[class*='styles_MessageAvatar']:hover * {
   translate: none !important;
   animation: none !important;
   margin: 0 !important;
+}
+
+/* --- Chroma Glow gradient & glass effects --- */
+body.chroma-glow-theme {
+  background:
+    radial-gradient(ellipse at 15% 85%, rgba(120, 0, 255, 0.15) 0%, #0000001c 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(255, 0, 128, 0.17) 0%, #0000001c 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(44, 117, 255, 0.04) 0%, #00000021 60%),
+    linear-gradient(135deg, #0d0015, #0a0a2e 30%, #150a30, #0d1538 80%, #120820);
+  background-attachment: fixed;
 }
