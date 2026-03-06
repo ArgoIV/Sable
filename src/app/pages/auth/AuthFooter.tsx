@@ -14,7 +14,24 @@ export function AuthFooter() {
         target="_blank"
         rel="noreferrer"
       >
-        {`v${APP_VERSION}${IS_RELEASE_TAG ? '' : `-dev${BUILD_HASH ? ` (${BUILD_HASH})` : ''}`}`}
+        {`v${APP_VERSION}${IS_RELEASE_TAG ? '' : '-dev'}`}
+        {!IS_RELEASE_TAG && BUILD_HASH && (
+          <>
+            {' ('}
+            {BUILD_REPO ? (
+              <a
+                href={`https://github.com/${BUILD_REPO}/commit/${BUILD_HASH}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {BUILD_HASH}
+              </a>
+            ) : (
+              BUILD_HASH
+            )}
+            )
+          </>
+        )}
       </Text>
       <Text as="a" size="T300" href="https://matrix.org" target="_blank" rel="noreferrer">
         Powered by Matrix

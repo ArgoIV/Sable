@@ -19,8 +19,25 @@ export function WelcomePage() {
               <span>
                 Yet another matrix client fork.{' '}
                 <a href="https://github.com/7w1/sable" target="_blank" rel="noreferrer noopener">
-                  {`v${APP_VERSION}${IS_RELEASE_TAG ? '' : `-dev${BUILD_HASH ? ` (${BUILD_HASH})` : ''}`}`}
+                  {`v${APP_VERSION}${IS_RELEASE_TAG ? '' : '-dev'}`}
                 </a>
+                {!IS_RELEASE_TAG && BUILD_HASH && (
+                  <>
+                    {' ('}
+                    {BUILD_REPO ? (
+                      <a
+                        href={`https://github.com/${BUILD_REPO}/commit/${BUILD_HASH}`}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        {BUILD_HASH}
+                      </a>
+                    ) : (
+                      BUILD_HASH
+                    )}
+                    )
+                  </>
+                )}
               </span>
             }
           >

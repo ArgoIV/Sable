@@ -46,6 +46,21 @@ const resolveBuildHash = (): string | undefined => {
 const appVersion = packageJson.version;
 const buildHash = resolveBuildHash();
 
+const buildRepo = (() => {
+  const envVal = process.env.VITE_BUILD_REPO;
+  if (envVal) return envVal;
+  try {
+    const remoteUrl = execSync('git remote get-url origin').toString().trim();
+    const sshMatch = remoteUrl.match(/git@github\.com:(.+?)(?:\.git)?$/);
+    if (sshMatch) return sshMatch[1];
+    const httpsMatch = remoteUrl.match(/github\.com\/(.+?)(?:\.git)?$/);
+    if (httpsMatch) return httpsMatch[1];
+  } catch {
+    // ignore
+  }
+  return '';
+})();
+
 const isReleaseTag = (() => {
   const envVal = process.env.VITE_IS_RELEASE_TAG;
   if (envVal !== undefined && envVal !== '') return envVal === 'true';
@@ -123,6 +138,7 @@ export default defineConfig({
   define: {
     APP_VERSION: JSON.stringify(appVersion),
     BUILD_HASH: JSON.stringify(buildHash ?? ''),
+    BUILD_REPO: JSON.stringify(buildRepo),
     IS_RELEASE_TAG: JSON.stringify(isReleaseTag),
   },
   resolve: {

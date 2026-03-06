@@ -147,8 +147,8 @@ type AboutProps = {
 };
 export function About({ requestClose }: AboutProps) {
   const mx = useMatrixClient();
-  const devLabel = IS_RELEASE_TAG ? '' : '-dev';
-  const buildLabel = BUILD_HASH ? ` (${BUILD_HASH})` : '';
+  const commitUrl =
+    BUILD_HASH && BUILD_REPO ? `https://github.com/${BUILD_REPO}/commit/${BUILD_HASH}` : undefined;
 
   return (
     <Page>
@@ -182,7 +182,22 @@ export function About({ requestClose }: AboutProps) {
                   <Box direction="Column" gap="100">
                     <Box gap="100" alignItems="End">
                       <Text size="H3">Sable</Text>
-                      <Text size="T200">{`v${APP_VERSION}${devLabel}${buildLabel}`}</Text>
+                      <Text size="T200">
+                        {`v${APP_VERSION}${IS_RELEASE_TAG ? '' : '-dev'}`}
+                        {!IS_RELEASE_TAG && BUILD_HASH && (
+                          <>
+                            {' ('}
+                            {commitUrl ? (
+                              <a href={commitUrl} target="_blank" rel="noreferrer noopener">
+                                {BUILD_HASH}
+                              </a>
+                            ) : (
+                              BUILD_HASH
+                            )}
+                            )
+                          </>
+                        )}
+                      </Text>
                     </Box>
                     <Text>Yet another matrix client fork(ed from cinny).</Text>
                   </Box>

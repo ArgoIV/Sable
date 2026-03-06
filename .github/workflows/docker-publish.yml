@@ -85,6 +85,7 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             VITE_BUILD_HASH=${{ steps.vars.outputs.short_sha }}
+            VITE_BUILD_REPO=${{ github.repository }}
             VITE_IS_RELEASE_TAG=${{ steps.release_tag.outputs.is_release }}
 
       - name: Generate artifact attestation
