@@ -1,5 +1,150 @@
 # Sable Client Changelog
 
+## 1.7.0 (2026-03-10)
+
+### Features
+
+* URL navigation in auth (#1603)
+* check IndexedDB support (#1630)
+* show connected/connecting call status
+* Disable webcam by default using callIntent='audio'
+* Add privacy blur options in settings
+* Add pronouns and timezone options along with arbitrary field rendering
+* Add Matrix widget support and integration manager
+* Update SVG files for cinny, cinny-highlight, and cinny-unread with new designs
+* make replies toggle replies
+* setting for hiding member events in read-only rooms
+* port MSC4140 scheduled messages from cinny#2671
+* add Cloudflare Workers IaC and deployment workflows
+* quick react via message editor
+* add Show Unread Counts toggle to Visual Tweaks
+* cache image packs in localStorage to reduce sliding-sync dependency
+* in-app notification banner, account unread counts, and Discord-style floating pill
+* language specific pronouns setting in experimental tab
+* add parsePronounsInput utility function and refactor pronoun handling in commands
+* quick text reactions using +# prefix
+* badge count DMs-only toggle and highlight-only app badge option
+* show dev version with commit hash when not on a release tag
+* keyboard navigation shortcuts, ARIA form labels, and keyboard shortcuts page (#201)
+* Add voice/video room support (#2680)
+* enable HTTP/2 Cleartext (h2c) for proxy use
+* full-width highlight for notify-loud/silent push rule messages
+* notification settings page improvements
+* in-app bug report and feature request modal
+* match form fields to GitHub issue templates
+* improve sliding sync to match Element Web approach
+* register ExtensionPresence for live presence updates
+* tie presence extension into sendPresence setting
+
+### Fixes
+
+* update dependency matrix-js-sdk to v24 (#1175)
+* Fixed small typo an cross signing reset modal (#1112)
+* spoiler hidden link click (#1199)
+* update dependency matrix-js-sdk to v24.1.0 [security] (#1251)
+* login with sso when app using hash router (#1631)
+* update dependency katex to v0.16.10 [security] (#1654)
+* Fix video and audio loading with authenicated media (#1946)
+* update dependency matrix-js-sdk to v34.8.0 (#2011)
+* register service worker immediately and cache media requests (#1977)
+* update dependency matrix-js-sdk to v34.11.1 (#2053)
+* Prevent IME-exiting Enter press from sending message on Safari (#2175)
+* update dependency matrix-js-sdk to v38 [security] (#2493)
+* show call nav status while active call is ongoing
+* clean up call nav/call view console warnings
+* keep call media controls visible before joining
+* restore header icon button fill behavior
+* update dependency folds to v2.5.0 (#2606)
+* permissions and room icon resolution (#2)
+* preserve navigation context when opening non-call rooms
+* reset room name state when room instance changes
+* update dependency react-router-dom to v6.30.3 (#2612)
+* align account-data and message edit payload typing
+* decode route params before path regeneration
+* allow in-app notification in background when push notification isn't enabled
+* use unique tag for push notifications
+* load space list first
+* only import matrix sdk types
+* prevent sliding back after clicking push notification killing the pwa
+* try-catch all badge API calls
+* image not loading on mobile after lock/unlock (#2631)
+* add noreferrer to sanitized links for improved privacy consistency (#2628)
+* align i18next with react-i18next
+* group duplicate conditions into one
+* typo
+* adapt SmallWidget to matrix-widget-api 1.17.0 API
+* render call room chat only when chat panel is open
+* show call settings permissions only for call rooms
+* use PhoneDown icon for hang up action
+* enable members drawer toggle in desktop call rooms
+* actually call the function to sync names
+* update dependency folds to v2.6.1 (#2679)
+* delete and report button colors & missing modal backgrounds
+* replace --font-mono to make inline codeblocks use mono font
+* semi-revert matrix-widget-api 1.17 bump and migrate to 1.13 API
+* wait for Element Call contentLoaded before widget handshake
+* reference Nunito Variable font
+* add missing react hook dependencies
+* restore pronouns component wrapper
+* address eslint no-console and no-void issues
+* break import-x/no-cycle dependency chains
+* resolve initMatrix eslint violations
+* render Text children explicitly in wrapper components
+* focus nickname input imperatively in user chips
+* remove dead code and make eslint happy
+* remove unused vars from Message
+* drop arm/v7 from docker publish targets
+* replace small html with sub
+* show highlight count on highlighted badges, total on standard
+* fix room nav badge counts and add dot badge for non-notifying rooms
+* exclude DM rooms from space unread badge aggregation
+* preserve thread reply counts when clamping stale main-timeline total
+* improve DM name handling with nickname support
+* improve message send UX
+* correct pending/failed message opacity levels
+* make autocomplete detection split on any whitespace
+* disable auto-capitalization for server and username inputs
+* iOS reliability, SW click handling, and account switching
+* improve unread count calculation and background session highlight badges
+* prevent edit leakage, add required_state, re-render on Replace events, guard empty getContent()
+* resolve lint and formatting issues for quality checks
+* disallow unreacting if can't send redact events
+* show notice when lacking perms to send reactions
+* knope misconfiguration
+* sliding sync rendering, atBottom, phantom unread, pagination spinner
+* remove allowRedirects, add error fallbacks, apply useAuthentication in html parser
+* robust reply loading, E2EE support, blocked-user state
+* SW push deep-links, visibility suppression, settings decoupling, nav fix
+* export HandleNotificationClick to match Router.tsx import
+* show rich body in banner; fix encrypted msg dedup
+* source version from APP_VERSION instead of hard coding
+* banner default off on desktop, show for DMs, fix space navigation
+* prefer room-scoped member avatar over global profile
+* Element Call DM video calls + delayed event methods + post-lobby reload (port from Wally)
+* /myroomnick without new nick resets nick
+* do it for /myroomavatar as well
+* apply post-lobby reload to voice rooms too (same timing issue as DM calls)
+* use port 8080 instead of 80 in Caddyfile
+* strip cap_net_bind_service file capability from caddy binary
+* use absolute path for script tag to fix SSO redirect loading error
+* in-app notification banner placement
+* default badge unread counts to off
+* properly apply blockquotes so that custom html also gets forwarded
+* prevent duplicate forwards by managing forwarding state in MessageForwardInternal
+* remove NotificationBanner from ClientNonUIFeatures
+* remove stray conflict marker in useCommands.ts
+* update GITHUB_REPO constant to SableClient/Sable
+* notification delivery bugs (push sound, OS notifications, in-app audio, media session)
+* treat DMs as loud regardless of mention/push-rule sound tweak
+* revert DM badge highlight — only highlight on actual mentions/replies
+* use orphan parent space for deep-link navigation
+* suppress OS notification when app is focused; wrap in try/catch
+* always fire OS notification on desktop (Discord-style)
+* always reinit on TimelineRefresh to fix sliding sync hang
+* fix import order and suppress intentional await-in-loop
+* fix ESLint errors in ExtensionPresence and add changeset
+* make sendPresence toggle work for classic sync too
+
 ## 1.6.0 (2026-03-10)
 
 ### Features
